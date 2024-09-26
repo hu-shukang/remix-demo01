@@ -1,7 +1,8 @@
 #!/bin/bash
 
 rm -rf ./.amplify-hosting
-
+rm -rf node_modules
+npm install --omit=dev
 mkdir -p ./.amplify-hosting/compute/default
 
 cp -r ./build ./.amplify-hosting/compute/default/build
