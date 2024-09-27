@@ -44,7 +44,7 @@
     {
       "name": "default",
       "runtime": "nodejs18.x",
-      "entrypoint": "server.js"
+      "entrypoint": "npx remix-serve ./build/server/index.js"
     }
   ]
 }
