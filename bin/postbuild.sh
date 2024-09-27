@@ -6,7 +6,7 @@ mkdir -p ./.amplify-hosting/compute/default
 cp -r ./build ./.amplify-hosting/compute/default/build
 cp -r ./node_modules ./.amplify-hosting/compute/default/node_modules
 cp -r package.json ./.amplify-hosting/compute/default/package.json
-cp -r start.js ./.amplify-hosting/compute/default/start.js
+cp -r ./start.js ./.amplify-hosting/compute/default/start.js
 cp -r ./build/client ./.amplify-hosting/static
 cp deploy-manifest.json ./.amplify-hosting/deploy-manifest.json
 
