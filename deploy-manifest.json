@@ -25,7 +25,7 @@
       "path": "/*.*",
       "target": {
         "kind": "Static",
-        "cacheControl": "public, max-age=2"
+        "cacheControl": "public, max-age=200"
       },
       "fallback": {
         "kind": "Compute",
@@ -44,7 +44,7 @@
     {
       "name": "default",
       "runtime": "nodejs20.x",
-      "entrypoint": "start.js"
+      "entrypoint": "index.js"
     }
   ]
 }
