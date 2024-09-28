@@ -8,7 +8,10 @@ sourceMapSupport.install();
 
 const app = fastify();
 
-await app.register(remixFastify);
+const env = process.env.ENV;
+const mode = env === "local" ? "development" : "production";
+console.log("mode", mode);
+await app.register(remixFastify, { mode: mode });
 
 const host = "0.0.0.0";
 const desiredPort = Number(process.env.PORT) || 3000;

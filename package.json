@@ -6,7 +6,7 @@
   "scripts": {
     "build:fastify": "tsc --project ./tsconfig.server.json",
     "build": "remix vite:build && npm run build:fastify",
-    "dev": "tsx --watch-path ./server/index.ts ./server/index.ts",
+    "dev": "cross-env ENV=local tsx --watch-path ./server/index.ts ./server/index.ts",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "node ./server/index.js",
     "typecheck": "tsc",
@@ -14,6 +14,8 @@
   },
   "dependencies": {
     "@aws-amplify/ui-react": "^6.2.0",
+    "@fastify/middie": "^9.0.2",
+    "@fastify/static": "^8.0.1",
     "@mcansh/remix-fastify": "^3.4.0",
     "@remix-run/node": "^2.12.1",
     "@remix-run/react": "^2.12.1",
@@ -39,6 +41,7 @@
     "aws-cdk": "^2.138.0",
     "aws-cdk-lib": "^2.138.0",
     "constructs": "^10.3.0",
+    "cross-env": "^7.0.3",
     "esbuild": "^0.20.2",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
