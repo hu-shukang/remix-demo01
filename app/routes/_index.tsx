@@ -1,6 +1,9 @@
 import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import { Schema } from "amplify/data/resource";
+import { generateClient } from 'aws-amplify/data';
+
 export const meta: MetaFunction = () => {
   return [
     { title: "New Remix App" },
@@ -9,21 +12,26 @@ export const meta: MetaFunction = () => {
 };
 
 export const loader: LoaderFunction = async ({ context }) => {
-  
+  const client = generateClient<Schema>();
+  const { data: todos, errors } = await client.models.Todo.list();
   return json({
     env: context.ENV,
     test: context.TEST,
+    todos,
+    errors
   });
 };
 
 export default function Index() {
-  const { env, test } = useLoaderData<typeof loader>();
+  const { env, test, todos, errors } = useLoaderData<typeof loader>();
   return (
     <div className="flex h-screen items-center justify-center">
       <div className="flex flex-col items-center gap-16">
         <header className="flex flex-col items-center gap-9">
           <h1 className="leading text-2xl font-bold text-gray-800 dark:text-gray-100">
             [{ env }, { test }]Hello, Welcome to <span className="sr-only">Remix</span>
+            <div>{todos}</div>
+            <div>{errors}</div>
           </h1>
           <div className="h-[144px] w-[434px]">
             <img
