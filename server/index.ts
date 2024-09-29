@@ -3,13 +3,13 @@ import { remixFastify } from "@mcansh/remix-fastify";
 import { fastify } from "fastify";
 import sourceMapSupport from "source-map-support";
 import dotenv from 'dotenv';
+import { Amplify } from "aws-amplify";
 
 sourceMapSupport.install();
-
+Amplify.configure({})
 dotenv.config();
 const app = fastify();
 const env = process.env.ENV;
-console.log(process.env);
 const mode = env === "local" ? "development" : "production";
 await app.register(remixFastify, { mode: mode, getLoadContext: () => ({ENV: process.env.ENV, TEST: process.env.TEST}) });
 
