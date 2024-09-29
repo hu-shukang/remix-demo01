@@ -11,8 +11,7 @@
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "cross-env NODE_ENV=local node ./server/index.js",
     "start:main": "cross-env NODE_ENV=main node ./server/index.js",
-    "typecheck": "tsc",
-    "postbuild": "chmod +x bin/postbuild.sh && ./bin/postbuild.sh"
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@aws-amplify/ui-react": "^6.2.0",

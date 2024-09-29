@@ -7,10 +7,10 @@ import path from 'path';
 import fs from 'fs';
 sourceMapSupport.install();
 
-const env = fs.readFileSync(path.resolve(__dirname, `env/current`), 'utf8');
+const env = fs.readFileSync(path.resolve(process.cwd(), `env/current`), 'utf8');
 console.log('env', env);
 console.log('process.env.ENV', process.env.ENV);
-dotenv.config({path: path.resolve(__dirname, `env/.env.${env}`)});
+dotenv.config({path: path.resolve(process.cwd(), `env/.env.${env}`)});
 const app = fastify();
 
 const mode = env === "local" ? "development" : "production";
