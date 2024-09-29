@@ -1,4 +1,4 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 export const meta: MetaFunction = () => {
@@ -8,12 +8,13 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export async function loader() {
+export const loader: LoaderFunction = async ({ context }) => {
+  
   return json({
-    env: process.env.ENV,
-    test: process.env.TEST,
+    env: context.ENV,
+    test: context.TEST,
   });
-}
+};
 
 export default function Index() {
   const { env, test } = useLoaderData<typeof loader>();
