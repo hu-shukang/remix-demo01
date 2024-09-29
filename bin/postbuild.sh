@@ -10,7 +10,8 @@ cp -r ./server/index.js ./.amplify-hosting/compute/default/index.js
 cp -r ./server/env ./.amplify-hosting/compute/default/env
 cp -r ./build/client ./.amplify-hosting/static
 cp deploy-manifest.json ./.amplify-hosting/deploy-manifest.json
-
+ls -la ./.amplify-hosting/compute/default
+ls -la ./.amplify-hosting/compute/default/env
 cd ./.amplify-hosting/compute/default
 pwd
 npm install --omit=dev
