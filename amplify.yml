@@ -13,7 +13,6 @@ frontend:
         - npm run build
         - echo "ENV=$ENV"
         - rm -rf ./server/.env
-        - env | grep -e ENV >> ./server/.env.${ENV}
         - mv ./server/.env.${ENV} ./server/.env
         - rm -rf ./.amplify-hosting
         - mkdir -p ./.amplify-hosting/compute/default
