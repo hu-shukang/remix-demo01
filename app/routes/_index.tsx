@@ -14,24 +14,22 @@ export const meta: MetaFunction = () => {
 export const loader: LoaderFunction = async ({ context }) => {
   const client = generateClient<Schema>({authMode: 'iam'});
   const { data: todos, errors } = await client.models.Todo.list();
+  console.log(todos);
+  console.log(errors);
   return json({
     env: context.ENV,
-    test: context.TEST,
-    todos,
-    errors
+    test: context.TEST
   });
 };
 
 export default function Index() {
-  const { env, test, todos, errors } = useLoaderData<typeof loader>();
+  const { env, test } = useLoaderData<typeof loader>();
   return (
     <div className="flex h-screen items-center justify-center">
       <div className="flex flex-col items-center gap-16">
         <header className="flex flex-col items-center gap-9">
           <h1 className="leading text-2xl font-bold text-gray-800 dark:text-gray-100">
             [{ env }, { test }]Hello, Welcome to <span className="sr-only">Remix</span>
-            <div>{todos}</div>
-            <div>{errors}</div>
           </h1>
           <div className="h-[144px] w-[434px]">
             <img
