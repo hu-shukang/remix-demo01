@@ -4,7 +4,7 @@ import { fastify } from "fastify";
 import sourceMapSupport from "source-map-support";
 import dotenv from 'dotenv';
 import { Amplify } from "aws-amplify";
-import outputs from "../amplify_outputs.json";
+import outputs from "../amplify_outputs.json" assert { type: "json" };
 
 Amplify.configure(outputs);
 sourceMapSupport.install();

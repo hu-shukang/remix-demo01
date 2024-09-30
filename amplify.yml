@@ -26,6 +26,7 @@ frontend:
         - cp deploy-manifest.json ./.amplify-hosting/deploy-manifest.json
         - ls -la $CODEBUILD_SRC_DIR/remix-demo01
         - cd ./.amplify-hosting/compute/default
+        - ls -la 
         - pwd
         - npm install --omit=dev
         - cd $CODEBUILD_SRC_DIR
