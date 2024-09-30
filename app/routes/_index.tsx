@@ -12,7 +12,7 @@ export const meta: MetaFunction = () => {
 };
 
 export const loader: LoaderFunction = async ({ context }) => {
-  const client = generateClient<Schema>({authMode: 'iam'});
+  const client = generateClient<Schema>();
   const { data: todos, errors } = await client.models.Todo.list();
   console.log(todos);
   console.log(errors);
