@@ -12,8 +12,6 @@ frontend:
       commands:
         - npm run build
         - echo "ENV=$ENV"
-        - rm -rf ./server/.env
-        - mv ./server/.env.${ENV} ./server/.env
         - rm -rf ./.amplify-hosting
         - mkdir -p ./.amplify-hosting/compute/default
         - cp -r ./build ./.amplify-hosting/compute/default/build
@@ -21,7 +19,8 @@ frontend:
         - cp -r package-lock.json ./.amplify-hosting/compute/default/package-lock.json
         - cp -r package.json ./.amplify-hosting/compute/default/package.json
         - cp -r ./server/index.js ./.amplify-hosting/compute/default/index.js
-        - cp -r ./server/.env ./.amplify-hosting/compute/default/.env
+        - cp -r ./amplify_outputs.json ./.amplify-hosting/compute/default/amplify_outputs.json
+        - cp -r ./server/.env.${ENV} ./.amplify-hosting/compute/default/.env
         - cp -r ./build/client ./.amplify-hosting/static
         - cp deploy-manifest.json ./.amplify-hosting/deploy-manifest.json
         - ls -la $CODEBUILD_SRC_DIR/remix-demo01
