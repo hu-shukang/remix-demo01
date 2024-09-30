@@ -13,6 +13,7 @@ export const meta: MetaFunction = () => {
 
 export const loader: LoaderFunction = async ({ context }) => {
   const client = generateClient<Schema>();
+  await client.models.Todo.create({id: 'test_01', content: 'test_01_content'});
   const { data: todos, errors } = await client.models.Todo.list();
   console.log(todos);
   console.log(errors);
