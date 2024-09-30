@@ -14,13 +14,14 @@ frontend:
         - echo "ENV=$ENV"
         - rm -rf ./.amplify-hosting
         - mkdir -p ./.amplify-hosting/compute/default
+        - mkdir -p ./.amplify-hosting/compute/default/server
         - cp -r ./build ./.amplify-hosting/compute/default/build
         - cp -r ./node_modules ./.amplify-hosting/compute/default/node_modules
         - cp -r package-lock.json ./.amplify-hosting/compute/default/package-lock.json
         - cp -r package.json ./.amplify-hosting/compute/default/package.json
-        - cp -r ./server/index.js ./.amplify-hosting/compute/default/index.js
+        - cp -r ./server/index.js ./.amplify-hosting/compute/default/server/index.js
         - cp -r ./amplify_outputs.json ./.amplify-hosting/compute/default/amplify_outputs.json
-        - cp -r ./server/.env.${ENV} ./.amplify-hosting/compute/default/.env
+        - cp -r ./server/.env.${ENV} ./.amplify-hosting/compute/default/server/.env
         - cp -r ./build/client ./.amplify-hosting/static
         - cp deploy-manifest.json ./.amplify-hosting/deploy-manifest.json
         - ls -la $CODEBUILD_SRC_DIR/remix-demo01
